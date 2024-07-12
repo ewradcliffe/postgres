@@ -44,6 +44,7 @@ class Track(base):
 Session = sessionmaker(db)
 # opens an actual session by calling the Session() subclass defined above
 session = Session()
+print(session)
 
 # creating the database using declarative_base subclass
 base.metadata.create_all(db)
@@ -74,6 +75,7 @@ base.metadata.create_all(db)
 
 # Query 6 - select all tracks where the composer is "Queen" from the "Track" table
 tracks = session.query(Track).filter_by(Composer="Queen")
+print(tracks)
 for track in tracks:
     print(
         track.TrackId,
